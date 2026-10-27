@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-arteemis",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "Arteemis for n8n: B2B outreach events as triggers, contacts, lists, campaigns, pipeline and tasks as actions.",
 	"license": "MIT",
 	"homepage": "https://arteemis.xyz",
