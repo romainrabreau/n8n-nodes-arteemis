@@ -19,7 +19,7 @@ export interface Envelope {
 }
 
 /**
- * Calls one Arteemis tool: `POST {baseUrl}/tools/{tool}` with its arguments as the JSON body.
+ * Calls one arteemis tool: `POST {baseUrl}/tools/{tool}` with its arguments as the JSON body.
  * A refusal answers `{error: {code, message}}`, which NodeApiError shows as the description.
  */
 export async function arteemisApiRequest(

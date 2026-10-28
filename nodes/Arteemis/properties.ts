@@ -10,7 +10,7 @@ const contactIdField = (resource: string, operation: string): INodeProperties =>
 	type: 'string',
 	required: true,
 	default: '',
-	description: 'The Arteemis contact ID, from Contact > Create or Update or Contact > Find',
+	description: 'The arteemis contact ID, from Contact > Create or Update or Contact > Find',
 	displayOptions: show(resource, [operation]),
 });
 
@@ -136,7 +136,7 @@ export const nodeProperties: INodeProperties[] = [
 		placeholder: 'name@email.com',
 		default: '',
 		description:
-			'Work email. Arteemis uses it, or the LinkedIn profile, to find a contact that already exists.',
+			'Work email. arteemis uses it, or the LinkedIn profile, to find a contact that already exists.',
 		displayOptions: show('contact', ['upsert', 'find']),
 	},
 	{
@@ -172,7 +172,7 @@ export const nodeProperties: INodeProperties[] = [
 				type: 'string',
 				default: '',
 				description:
-					'The company they work for. Arteemis links the contact to it, and creates it when it does not exist yet.',
+					'The company they work for. arteemis links the contact to it, and creates it when it does not exist yet.',
 			},
 			{
 				displayName: 'Custom Fields',
@@ -307,7 +307,7 @@ export const nodeProperties: INodeProperties[] = [
 				name: 'contactId',
 				type: 'string',
 				default: '',
-				description: 'The Arteemis contact the task is about',
+				description: 'The arteemis contact the task is about',
 			},
 			{
 				displayName: 'Note',

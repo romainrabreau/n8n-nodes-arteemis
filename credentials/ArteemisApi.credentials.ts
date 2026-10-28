@@ -24,14 +24,14 @@ export class ArteemisApi implements ICredentialType {
 			required: true,
 			default: '',
 			description:
-				'A workspace key (art_key_...) from Settings > MCP & API in Arteemis. A personal token (art_pat_...) also works, but only an admin can set up the trigger.',
+				'A workspace key (art_key_...) from Settings > MCP & API in arteemis. A personal token (art_pat_...) also works, but only an admin can set up the trigger.',
 		},
 		{
 			displayName: 'Base URL',
 			name: 'baseUrl',
 			type: 'string',
 			default: 'https://api.arteemis.xyz/api/v1',
-			description: 'Leave as is unless Arteemis gave you another address',
+			description: 'Leave as is unless arteemis gave you another address',
 		},
 	];
 

@@ -65,7 +65,7 @@ async function upsertContact(this: IExecuteFunctions, i: number): Promise<IDataO
 	const hasCustom = Object.keys(customFields).length > 0;
 	const listId = (extra.listId as string | undefined) || undefined;
 
-	// Arteemis matches a person on email first, then LinkedIn profile: create answers the existing contact.
+	// arteemis matches a person on email first, then LinkedIn profile: create answers the existing contact.
 	const { data: created } = await arteemisApiRequest.call(this, 'contacts_manage', {
 		operation: 'create',
 		contact: {
@@ -112,7 +112,7 @@ async function findContact(this: IExecuteFunctions, i: number): Promise<IDataObj
 			},
 		);
 	}
-	// match looks the email up first, then the LinkedIn profile, the way Arteemis deduplicates contacts.
+	// match looks the email up first, then the LinkedIn profile, the way arteemis deduplicates contacts.
 	const { data: matched } = await arteemisApiRequest.call(this, 'contacts_query', {
 		match: [{ kind: 'person', ...entry }],
 	});
@@ -185,7 +185,7 @@ async function run(this: IExecuteFunctions, i: number): Promise<IDataObject[]> {
 		const extra = this.getNodeParameter('additionalFields', i, {}) as IDataObject;
 		const due = new Date(this.getNodeParameter('dueAt', i) as string);
 		if (Number.isNaN(due.getTime())) {
-			throw new NodeOperationError(this.getNode(), 'Due is not a date Arteemis can read', {
+			throw new NodeOperationError(this.getNode(), 'Due is not a date arteemis can read', {
 				itemIndex: i,
 			});
 		}
@@ -217,15 +217,15 @@ async function run(this: IExecuteFunctions, i: number): Promise<IDataObject[]> {
 
 export class Arteemis implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'Arteemis',
+		displayName: 'arteemis',
 		name: 'arteemis',
 		icon: { light: 'file:../../icons/arteemis.svg', dark: 'file:../../icons/arteemis.dark.svg' },
 		group: ['output'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
-		description: 'Create contacts, fill lists, enroll campaigns and move your pipeline in Arteemis',
+		description: 'Create contacts, fill lists, enroll campaigns and move your pipeline in arteemis',
 		defaults: {
-			name: 'Arteemis',
+			name: 'arteemis',
 		},
 		usableAsTool: true,
 		inputs: [NodeConnectionTypes.Main],

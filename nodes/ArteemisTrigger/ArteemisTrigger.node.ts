@@ -56,15 +56,15 @@ const sameEvents = (a: string[], b: string[]) =>
 
 export class ArteemisTrigger implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'Arteemis Trigger',
+		displayName: 'arteemis Trigger',
 		name: 'arteemisTrigger',
 		icon: { light: 'file:../../icons/arteemis.svg', dark: 'file:../../icons/arteemis.dark.svg' },
 		group: ['trigger'],
 		version: 1,
 		subtitle: '={{$parameter["events"].join(", ")}}',
-		description: 'Starts the workflow when something happens in your Arteemis workspace',
+		description: 'Starts the workflow when something happens in your arteemis workspace',
 		defaults: {
-			name: 'Arteemis Trigger',
+			name: 'arteemis Trigger',
 		},
 		inputs: [],
 		outputs: [NodeConnectionTypes.Main],
@@ -145,7 +145,7 @@ export class ArteemisTrigger implements INodeType {
 				type: 'boolean',
 				default: true,
 				description:
-					'Whether to refuse calls not signed with the secret Arteemis gave when the webhook was created',
+					'Whether to refuse calls not signed with the secret arteemis gave when the webhook was created',
 			},
 		],
 	};
@@ -198,7 +198,7 @@ export class ArteemisTrigger implements INodeType {
 				const staticData = this.getWorkflowStaticData('node');
 				if (staticData.endpointId) {
 					const { data } = await arteemisApiRequest.call(this, 'webhooks_list', {});
-					// Gone already (deleted in Arteemis): nothing left to remove.
+					// Gone already (deleted in arteemis): nothing left to remove.
 					const exists = (data.endpoints as Endpoint[]).some(
 						(item) => item.id === staticData.endpointId,
 					);
@@ -221,7 +221,7 @@ export class ArteemisTrigger implements INodeType {
 			const secret = this.getWorkflowStaticData('node').secret as string | undefined;
 			const request = this.getRequestObject();
 			if (!secret || !isValidSignature(secret, this.getHeaderData(), request.rawBody ?? '')) {
-				// A 401 makes Arteemis retry, then report the endpoint as failing: never silently dropped.
+				// A 401 makes arteemis retry, then report the endpoint as failing: never silently dropped.
 				this.getResponseObject().status(401).send('Invalid signature').end();
 				return { noWebhookResponse: true };
 			}
