@@ -11,7 +11,7 @@ In n8n, open **Settings > Community Nodes**, choose **Install** and enter `n8n-n
 
 ## Credentials
 
-In Arteemis, open **Integrations > API** and create a **workspace key** (`art_key_...`). In n8n, create an **Arteemis API** credential and paste it as the API key. Leave the base URL at `https://api.arteemis.xyz/api/v1`.
+In Arteemis, open **Settings > MCP & API** and create a **workspace key** (`art_key_...`). In n8n, create an **Arteemis API** credential and paste it as the API key. Leave the base URL at `https://api.arteemis.xyz/api/v1`.
 
 A personal token (`art_pat_...`) also works for the actions, with your own role. The trigger manages webhooks, which needs a workspace key or the admin role.
 

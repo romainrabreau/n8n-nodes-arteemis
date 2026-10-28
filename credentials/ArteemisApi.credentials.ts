@@ -24,7 +24,7 @@ export class ArteemisApi implements ICredentialType {
 			required: true,
 			default: '',
 			description:
-				'A workspace key (art_key_...) from Integrations > API in Arteemis. A personal token (art_pat_...) also works, but only an admin can set up the trigger.',
+				'A workspace key (art_key_...) from Settings > MCP & API in Arteemis. A personal token (art_pat_...) also works, but only an admin can set up the trigger.',
 		},
 		{
 			displayName: 'Base URL',
